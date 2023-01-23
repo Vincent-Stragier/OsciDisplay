@@ -1,4 +1,5 @@
 #include "FastDAC.h"
+// #include <soc/rtc.h>
 
 void setup() 
 {
@@ -21,12 +22,12 @@ void setup()
 
   Serial.print("Writing 1M Samples with FastDAC functions: ");
   t = millis();
-  DACPrepare(true);
+  DACPrepare(false);
   for(int i = 0; i < 1000000; i++)
   {
     DAC1Write(i);
   }
-  DACUnprepare(true);
+  DACUnprepare(false);
   Serial.print(1000000000 / (millis() - t));
   Serial.println(" Sa/s");  
 }
